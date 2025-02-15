@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockSim - Learn Trading Risk-Free</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .hero {
+            background: linear-gradient(to right, #16213e, #0f3460);
+            color: white;
+            padding: 60px 20px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 20px;
+            margin: 10px 0 20px;
+        }
+        .btn {
+            background-color: #ff4b5c;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #ff6b81;
+        }
+        .section {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .footer {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0f3460;
+        }
+    </style>
+    <script>
+        function runStockSimulation() {
+            document.getElementById("spinner").style.display = "block";
+            fetch('/run_stock_simulation')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("output").innerText = "Simulation Results: " + data.result;
+                document.getElementById("spinner").style.display = "none";
+            })
+            .catch(error => {
+                document.getElementById("output").innerText = "Error running simulation.";
+                document.getElementById("spinner").style.display = "none";
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="header">StockSim - The Ultimate Trading Playground</div>
+    
+    <div class="hero">
+        <h1>Master the Stock Market Without Risk</h1>
+        <p>Practice real-world trading strategies with virtual money.</p>
+        <button class="btn" onclick="runStockSimulation()">Start Trading Now</button>
+    </div>
+    
+    <div class="section" id="start">
+        <h2>How It Works</h2>
+        <p> Get virtual cash to invest.</p>
+        <p> Trade real stocks in a simulated environment.</p>
+        <p> Learn, compete, and sharpen your trading skills!</p>
+    </div>
+    
+    <div class="section">
+        <h2>Simulation Results</h2>
+        <p id="output">Click "Start Trading Now" to run a simulation.</p>
+    </div>
+    
+    <div class="section">
+        <h2>Login / Register</h2>
+        <p>Already have an account? Log in to continue trading.</p>
+        <a href="login.html" class="btn">Login / Register</a>
+    </div>
+    
+    <div class="footer">&copy; 2025 StockSim | Learn, Trade, Win!</div>
+</body>
+</html>
