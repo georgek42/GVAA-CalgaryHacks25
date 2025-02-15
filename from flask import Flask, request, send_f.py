@@ -1,6 +1,7 @@
 from flask import Flask, request, send_file
 import yfinance as yf
 import matplotlib.pyplot as plt
+from io import BytesIO
 
 app = Flask(__name__)
 
