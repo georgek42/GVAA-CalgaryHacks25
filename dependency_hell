@@ -1,0 +1,4 @@
+express
+mongoose
+bcryptjs
+body-parser
