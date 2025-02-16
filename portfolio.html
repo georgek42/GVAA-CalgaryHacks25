@@ -179,32 +179,6 @@
             }
         </style>
     </head>
-
-<body>
-
-
-    <div class="header">
-        <div class="logo">STOCKY</div>
-        <a href="index.html" class="btn">Back to Home</a>
-    </div>
-
-    <div class="container">
-        <h2>Your Portfolio</h2>
-        <ul id="portfolioList" class="portfolio-list">
-            <p>Your portfolio is empty. Add stocks below!</p>
-        </ul>
-
-        <h3>Add a Stock</h3>
-        <form class="add-stock-form" onsubmit="addStock(event)">
-            <input type="text" id="stockName" placeholder="Enter stock name (e.g., AAPL)" required>
-            <input type="text" id="stockPrice" placeholder="Enter price (e.g., $175.23)" required>
-            <input type="text" id="stockChange" placeholder="Enter change (e.g., +2.34 or -1.56)" required>
-            <button type="submit">Add Stock</button>
-        </form>
-    </div>
-
-    <div class="footer">&copy; 2025 StockSim | Manage, Learn, Grow!</div>
-
     <script>
         function loadPortfolio() {
             let portfolio = JSON.parse(localStorage.getItem("portfolio")) || [];
@@ -264,7 +238,33 @@
 
         window.onload = loadPortfolio;
     </script>
+<body>
+
+
+    <div class="header">
+        <div class="logo">STOCKY</div>
+        <a href="index.html" class="btn">Back to Home</a>
+    </div>
+
+    <div class="container">
+        <h2>Your Portfolio</h2>
+        <ul id="portfolioList" class="portfolio-list">
+            <p>Your portfolio is empty. Add stocks below!</p>
+        </ul>
+
+        <h3>Add a Stock</h3>
+        <form class="add-stock-form" onsubmit="addStock(event)">
+            <input type="text" id="stockName" placeholder="Enter stock name (e.g., AAPL)" required>
+            <input type="text" id="stockPrice" placeholder="Enter price (e.g., $175.23)" required>
+            <input type="text" id="stockChange" placeholder="Enter change (e.g., +2.34 or -1.56)" required>
+            <button type="submit">Add Stock</button>
+        </form>
+    </div>
+
+    
 
 </body>
-
+<footer>
+    <div class="footer">&copy; 2025 StockSim | Learn, Trade, Win!</div>
+</footer>
 </html>
