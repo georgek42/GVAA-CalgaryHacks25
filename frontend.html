@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Trend Viewer</title>
+</head>
+<body>
+    <h1>Stock Trend Viewer</h1>
+
+    <!-- Input Fields -->
+    <label for="ticker">Enter Stock Ticker:</label>
+    <input type="text" id="ticker" placeholder="e.g., AAPL">
+    
+    <br><br>
+
+    <label for="date_range">Select Date Range:</label>
+    <select id="date_range">
+        <option value="1mo">1 Month</option>
+        <option value="3mo">3 Months</option>
+        <option value="1y">1 Year</option>
+        <option value="5y">5 Years</option>
+    </select>
+    
+    <br><br>
+
+    <label for="interval">Select Interval:</label>
+    <select id="interval">
+        <option value="1d">1 Day</option>
+        <option value="1wk">1 Week</option>
+        <option value="1h">1 Hour</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="getStockTrend()">Get Stock Trend</button>
+
+    <br><br>
+
+    <!-- Image to Display Stock Trend -->
+    <h2>Stock Trend Chart</h2>
+    <img id="stock_chart" src="" alt="Stock Trend Chart" style="max-width: 100%; height: auto;">
+    
+    <script>
+        function getStockTrend() {
+            const ticker = document.getElementById("ticker").value;
+            const date_range = document.getElementById("date_range").value;
+            const interval = document.getElementById("interval").value;
+
+            // Fetch stock trend chart from backend
+            fetch(`http://127.0.0.1:5000/get_stock_chart?ticker=${ticker}&range=${date_range}&interval=${interval}`)
+                .then(response => response.blob())
+                .then(imageBlob => {
+                    console.log("Image Blob:", imageBlob);  // Debugging
+                    const imageObjectURL = URL.createObjectURL(imageBlob);
+                    document.getElementById("stock_chart").src = imageObjectURL;
+                })
+                .catch(error => {
+                    console.error('Error fetching stock trend:', error);
+                    alert('Failed to fetch stock trend. Please check the console for more details.');
+                });
+        }
+    </script>
+</body>
+</html>
