@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Graph</title>
+</head>
+<body>
+    <h1>Stock Price Graph</h1>
+    <form method="POST">
+        <label for="ticker">Stock Ticker: </label>
+        <input type="text" id="ticker" name="ticker" required>
+        <br>
+
+        <label for="period">Period: </label>
+        <select id="period" name="period" required>
+            <option value="1d">1 Day</option>
+            <option value="5d">5 Days</option>
+            <option value="1mo">1 Month</option>
+            <option value="3mo">3 Months</option>
+            <option value="1y">1 Year</option>
+            <option value="2y">2 Years</option>
+            <option value="5y">5 Years</option>
+            <option value="10y">10 Years</option>
+            <option value="ytd">Year to Date</option>
+        </select>
+        <br>
+
+        <label for="interval">Interval: </label>
+        <select id="interval" name="interval" required>
+            <option value="1m">1 Minute</option>
+            <option value="2m">2 Minutes</option>
+            <option value="5m">5 Minutes</option>
+            <option value="15m">15 Minutes</option>
+            <option value="30m">30 Minutes</option>
+            <option value="1h">1 Hour</option>
+            <option value="3h">3 Hours</option>
+            <option value="6h">6 Hours</option>
+            <option value="12h">12 Hours</option>
+            <option value="1d">1 Day</option>
+            <option value="5d">5 Days</option>
+            <option value="1wk">1 Week</option>
+            <option value="1mo">1 Month</option>
+            <option value="3mo">3 Months</option>
+        </select>
+        <br>
+
+        <button type="submit">Generate Graph</button>
+    </form>
+
+    {% if img_path %}
+    <h2>Stock Price Graph for {{ request.form['ticker'] }}</h2>
+    <img src="{{ img_path }}" alt="Stock Price Graph">
+    <br>
+    <p>Graph saved as: {{ img_path }}</p>
+    {% endif %}
+</body>
+</html>

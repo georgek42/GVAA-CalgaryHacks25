@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Chart Viewer</title>
+</head>
+<body>
+    <h1>AAPL Stock Chart</h1>
+    
+    <button onclick="fetchStockChart()">Load Stock Chart</button>
+    <br><br>
+    
+    <img id="stock_chart" src="" alt="Stock Chart" style="max-width: 100%; height: auto;">
+
+    <script>
+        function fetchStockChart() {
+            // Fetch the stock chart from the Flask backend
+            //const imgSrc = "/path/to/your/stock/chart.png";
+            console.log("Test");
+            //document.getElementById("stock_chart").src = imgSrc;
+            //console.log("Stock chart URL:", imgSrc);
+        }
+    </script>
+</body>
+</html>

@@ -24,6 +24,7 @@ def get_stock_chart():
     plt.legend()
     plt.show()
 
+
     # Save the plot to a BytesIO buffer (in-memory file)
     img_buf = BytesIO()
     plt.savefig(img_buf, format='png')
@@ -31,8 +32,10 @@ def get_stock_chart():
     img_buf.seek(0)  # Go to the beginning of the buffer
 
 
+
     # Send the image file to the frontend
     return send_file(img_buf, mimetype='image/png')
 
 if __name__ == '__main__':
     app.run(debug=True)
+  
